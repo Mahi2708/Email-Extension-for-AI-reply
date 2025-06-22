@@ -1,0 +1,30 @@
+{
+    "name": "My Email Extension",
+    "description": "AI powered Extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions":["activeTab","storage"],
+    "host_permissions":[
+  "http://localhost:8080/*",
+  "https://mail.google.com/*"
+],
+"content_scripts":[
+  {
+    "js":["popup.js"],
+    "matches":["https://mail.google.com/*"],
+    "css":["content.css"],
+    "run_at":"document_end"
+  }
+],
+"web_accessible_resources": [
+  {
+    "resources": [ "image.png" ],
+    "matches": [ "https://mail.google.com/*" ]
+  }
+],
+
+    "action": {
+      "default_title": "Email writer",
+      "default_icon": "image.png"
+    }
+  }
